@@ -22,7 +22,7 @@ CREATE TABLE posts (
 	post_id INT NOT NULL AUTO_INCREMENT,
 	user_id INT,
 	post_body TINYTEXT NOT NULL,
-    	timestamp DATETIME NOT NULL,
+    	timestamp_posted DATETIME DEFAULT CURRENT_TIMESTAMP,
     
    	PRIMARY KEY(post_id),
 	FOREIGN KEY(user_id) REFERENCES user(user_id)
@@ -31,7 +31,7 @@ CREATE TABLE posts (
 CREATE TABLE comments (
 	comment_id INT NOT NULL AUTO_INCREMENT,
     	comment_body TINYTEXT NOT NULL,
-    	timestamp DATETIME NOT NULL,
+    	timestamp_commented DATETIME DEFAULT CURRENT_TIMESTAMP,
     	post_id INT,
     	user_id INT,
     
